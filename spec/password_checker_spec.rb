@@ -12,7 +12,7 @@ describe PasswordChecker do
     context "str: blank" do
       let(:password_string) { "" }
       it {
-        str = [error_mes, no_int, no_lower, no_upper, no_length].join("\n") + "\n"
+        str = [error_mes, no_int, no_lower, no_upper, no_length].join("\n")
         is_expected.to eq str
       }
     end
