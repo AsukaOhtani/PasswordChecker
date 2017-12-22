@@ -55,5 +55,3 @@ class PasswordChecker
     end
   end
 end
-
-puts PasswordChecker.new(ARGV[0]).run
