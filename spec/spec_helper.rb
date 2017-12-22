@@ -13,6 +13,9 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require "rubygems"
+require "bundler/setup"
+require "pry"
 Dir[File.join(File.dirname(__FILE__), "..", "main", "*.rb")].each{|f| require f }
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
