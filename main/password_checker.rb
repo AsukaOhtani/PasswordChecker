@@ -30,25 +30,13 @@ class PasswordChecker
     oneup = []
 
     VALID_RULE.each do |key, rule|
-      errors << key unless password_string =~ rule[:reg]
+      errors << rule[:mes] unless password_string.match(rule[:reg])
     end
-    return error_messages(errors) if errors[0]
+    return errors.unshift(VALID_MES).join("\n") if errors[0]
 
     OPTION_RULE.each do |key, rule|
-      oneup << key if password_string =~ rule[:reg]
+      oneup << rule[:mes] if password_string.match(rule[:reg])
     end
-    return success_messages(oneup)
-  end
-
-  def error_messages(errors)
-    errors.each.with_object(VALID_MES) do |key, mes|
-      mes << "\n#{VALID_RULE[key][:mes]}"
-    end
-  end
-
-  def success_messages(oneup)
-    oneup.each.with_object(OPTION_MES) do |key, mes|
-      mes << "\n#{OPTION_RULE[key][:mes]}"
-    end
+    oneup.uniq.unshift(OPTION_MES).join("\n")
   end
 end
