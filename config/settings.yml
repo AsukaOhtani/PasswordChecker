@@ -1,0 +1,27 @@
+valid:
+  first_message: パスワードがだめっぽいです。
+  rules:
+    number_include:
+      reg: !ruby/regexp /^(([^\d])+|)$/
+      mes: 数字が含まれていません
+    lower_include:
+      reg: !ruby/regexp /^(([^a-z])+|)$/
+      mes: 小文字が含まれていません
+    upper_include:
+      reg: !ruby/regexp /^(([^A-Z])+|)$/
+      mes: 大文字が含まれていません
+    enough_length:
+      reg: !ruby/regexp /^(.{0,7})$/
+      mes: 既定の文字数に達していません
+option:
+  first_message: よさそうなパスワードです！ よきかな
+  rules:
+    no_special:
+      reg: !ruby/regexp /.*/
+      mes: ""
+    valid_symbol:
+      reg: !ruby/regexp /[!#$%&'\(\)*+,-.\/\\:;<=>?@\[\]^_`{|}~]+/
+      mes: 記号が含まれています！ Good
+    start_with_symbol:
+      reg: !ruby/regexp /\A[^\w]/
+      mes: 記号から始まっています！ Great！
